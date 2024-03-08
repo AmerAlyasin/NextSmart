@@ -20,7 +20,7 @@ const AddPlPage = () => {
   useEffect(()=> {
   const fetchClientsWithQuotations = async () => {
     try {
-      const response = await fetch(`${domain}/clientWithQuoAndPo`, {
+      const response = await fetch(`${domain}/api/clientWithQuoAndPo`, {
         method: "POST"
       });
       if (response.ok) {
@@ -45,7 +45,7 @@ const AddPlPage = () => {
   };
 
     fetchClientsWithQuotations();
-  }, [domain]);
+  }, []);
 
   const renderClientOptions = () => (
     <>

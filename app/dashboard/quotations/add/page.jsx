@@ -18,7 +18,7 @@ const AddQuotationPage = () => {
   useEffect(() => {
     const fetchClients = async () => {
       try {
-        const response = await fetch(`${domain}/allClients`, { method: 'GET' });
+        const response = await fetch(`${domain}/api/allClients`, { method: 'GET' });
         const data = await response.json();
         console.log('Clients fetched:', data);
         setClients(data);
@@ -30,13 +30,13 @@ const AddQuotationPage = () => {
     };
   
     fetchClients();
-  }, [domain ]);
+  }, []);
   
 
   useEffect(() => {
     const fetchSales= async () => {
       try {
-        const response = await fetch(`${domain}/allSales`, { method: 'GET' });
+        const response = await fetch(`${domain}/api/allSales`, { method: 'GET' });
         const data = await response.json();
         console.log('Sales fetched:', data);
         setSales(data);
@@ -48,7 +48,7 @@ const AddQuotationPage = () => {
     };
   
     fetchSales();
-  }, [domain ]);
+  }, []);
  
 
   const addRow = () => {

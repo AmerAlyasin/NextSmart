@@ -19,7 +19,7 @@ const AddCocPage = () => {
   const fetchClientsWithQuotations = async () => {
     try {
       const domain = process.env.DOMAIN || "http://localhost:3000/api";
-      const response = await fetch(`${domain}/clientWithQuoAndPo`, {
+      const response = await fetch(`${domain}/api/clientWithQuoAndPo`, {
         method: "POST"
       });
       if (response.ok) {
@@ -45,7 +45,7 @@ const AddCocPage = () => {
 
     // Fetch clients with quotations on component mount
     fetchClientsWithQuotations();
-  }, [domain ]);
+  }, []);
 
   const renderClientOptions = () => (
     <>
@@ -91,7 +91,7 @@ const AddCocPage = () => {
     const fetchSales = async () => {
       try {
         const domain = process.env.DOMAIN || "http://localhost:3000/api";
-        const response = await fetch(`${domain}/allSales`, { method: 'GET' });
+        const response = await fetch(`${domain}/api/allSales`, { method: 'GET' });
         const data = await response.json();
         console.log('Sales fetched:', data);
         setSales(data);
@@ -103,14 +103,14 @@ const AddCocPage = () => {
     };
   
     fetchSales();
-  }, [domain ]);
+  }, []);
 
 
   useEffect(() => {
     const fetchJobOrder = async () => {
       try {
         const domain = process.env.DOMAIN || "http://localhost:3000/api";
-        const response = await fetch(`${domain}/allJobs`, { method: 'GET' });
+        const response = await fetch(`${domain}/api/allJobs`, { method: 'GET' });
         const data = await response.json();
         console.log('Purchase fetched:', data);
         setjobOrders(data);
@@ -122,7 +122,7 @@ const AddCocPage = () => {
     };
   
     fetchJobOrder();
-  }, [domain ]);
+  }, []);
 
 
  

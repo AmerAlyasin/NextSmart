@@ -21,7 +21,7 @@ const AddApproveQuo = () => {
   const fetchClientsWithQuotations = async () => {
     try {
       const domain = process.env.DOMAIN || "http://localhost:3000/api";
-      const response = await fetch(`${domain}/clientWithQuoAndPo`, {
+      const response = await fetch(`${domain}/api/clientWithQuoAndPo`, {
         method: "POST"
       });
       if (response.ok) {
@@ -46,7 +46,7 @@ const AddApproveQuo = () => {
   };
 
     fetchClientsWithQuotations();
-  }, [domain]);
+  }, []);
 
   const renderClientOptions = () => (
     <>
@@ -64,7 +64,7 @@ const AddApproveQuo = () => {
     const fetchSales= async () => {
       try {
         const domain = process.env.DOMAIN || "http://localhost:3000/api";
-        const response = await fetch(`${domain}/allSales`, { method: 'GET' });
+        const response = await fetch(`${domain}/api/allSales`, { method: 'GET' });
         const data = await response.json();
         console.log('Sales fetched:', data);
         setSales(data);
@@ -76,13 +76,13 @@ const AddApproveQuo = () => {
     };
   
     fetchSales();
-  }, [domain]);
+  }, []);
  
   useEffect(() => {
     const fetchUsers= async () => {
       try {
         const domain = process.env.DOMAIN || "http://localhost:3000/api";
-        const response = await fetch(`${domain}/allUsers`, { method: 'GET' });
+        const response = await fetch(`${domain}/api/allUsers`, { method: 'GET' });
         const data = await response.json();
         setUsers(data);
         setLoading(false);
@@ -93,7 +93,7 @@ const AddApproveQuo = () => {
     };
   
     fetchUsers();
-  }, [domain]);
+  }, []);
 
 
   

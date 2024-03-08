@@ -18,7 +18,7 @@ const AddPurchasePage = () => {
   useEffect(() => { 
     const fetchSuppliers = async () => {
       try {
-        const response = await fetch(`${domain}/allSuppliers`, { method: 'GET' });
+        const response = await fetch(`${domain}/api/allSuppliers`, { method: 'GET' });
         const data = await response.json();
         console.log('Suppliers fetched:', data);
         setSuppliers(data);
@@ -30,14 +30,14 @@ const AddPurchasePage = () => {
     };
   
     fetchSuppliers();
-  }, [domain ]);
+  }, []);
 
 
 
   useEffect(() => { 
     const fetchQuotations = async () => {
       try {
-        const response = await fetch(`${domain}/allQuotations`, { method: 'GET' });
+        const response = await fetch(`${domain}/api/allQuotations`, { method: 'GET' });
         const data = await response.json();
         console.log('Quotations fetched:', data);
         setQuotations(data);
@@ -49,13 +49,13 @@ const AddPurchasePage = () => {
     };
   
     fetchQuotations();
-  }, [domain ]);
+  }, []);
 
 
   useEffect(() => { 
     const fetchSales = async () => {
       try {
-        const response = await fetch(`${domain}/allSales`, { method: 'GET' });
+        const response = await fetch(`${domain}/api/allSales`, { method: 'GET' });
         const data = await response.json();
         console.log('sales fetched:', data);
         setSales(data);
@@ -67,7 +67,7 @@ const AddPurchasePage = () => {
     };
   
     fetchSales();
-  }, [domain ]);
+  }, []);
 
 
   const addRow = () => {

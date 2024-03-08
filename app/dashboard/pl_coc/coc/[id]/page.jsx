@@ -22,7 +22,7 @@ const SingleCoc = ({params}) => {
     const getCocById = async () => {
       try {
         const domain = process.env.DOMAIN || "http://localhost:3000/api";
-        const response = await fetch(`${domain}/coc/${params.id}`,{
+        const response = await fetch(`${domain}/api/coc/${params.id}`,{
           method: "GET",
         });
         if (!response.ok) {
@@ -38,7 +38,7 @@ const SingleCoc = ({params}) => {
     };
   
     getCocById();
-  }, [domain ,params.id]); // <-- Add params.id as a dependency
+  }, [params.id]); // <-- Add params.id as a dependency
   
       
 
@@ -72,7 +72,7 @@ const SingleCoc = ({params}) => {
           };
     
           const domain = process.env.DOMAIN || "http://localhost:3000/api";
-          const response = await fetch(`${domain}/loadCocPdf`, {
+          const response = await fetch(`${domain}/api/loadCocPdf`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

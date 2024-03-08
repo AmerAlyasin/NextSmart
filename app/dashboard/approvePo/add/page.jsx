@@ -19,7 +19,7 @@ const AddApprovePo = () => {
   const fetchSuppliersWithPurchaseOrders = async () => {
     try {
       const domain = process.env.DOMAIN || "http://localhost:3000/api";
-      const response = await fetch(`${domain}/supplierWithPo`, {
+      const response = await fetch(`${domain}/api/supplierWithPo`, {
         method: "POST"
       });
       if (response.ok) {
@@ -45,7 +45,7 @@ const AddApprovePo = () => {
 
   
     fetchSuppliersWithPurchaseOrders();
-  }, [domain]);
+  }, []);
 
 
   const renderSupplierOptions = () => (
@@ -64,7 +64,7 @@ const AddApprovePo = () => {
     const fetchSales= async () => {
       try {
         const domain = process.env.DOMAIN || "http://localhost:3000/api";
-        const response = await fetch(`${domain}/allSales`, { method: 'GET' });
+        const response = await fetch(`${domain}/api/allSales`, { method: 'GET' });
         const data = await response.json();
         console.log('Sales fetched:', data);
         setSales(data);
@@ -76,13 +76,13 @@ const AddApprovePo = () => {
     };
   
     fetchSales();
-  }, [domain]);
+  }, []);
  
   useEffect(() => {
     const fetchUsers= async () => {
       try {
         const domain = process.env.DOMAIN || "http://localhost:3000/api";
-        const response = await fetch(`${domain}/allUsers`, { method: 'GET' });
+        const response = await fetch(`${domain}/api/allUsers`, { method: 'GET' });
         const data = await response.json();
         console.log('Users fetched:', data);
         setUsers(data);
@@ -94,13 +94,13 @@ const AddApprovePo = () => {
     };
   
     fetchUsers();
-  }, [domain]);
+  }, []);
 
   useEffect(() => {
     const fetchQuotations= async () => {
       try {
         const domain = process.env.DOMAIN || "http://localhost:3000/api";
-        const response = await fetch(`${domain}/allQuotations`, { method: 'GET' });
+        const response = await fetch(`${domain}/api/allQuotations`, { method: 'GET' });
         const data = await response.json();
         console.log('Quotation fetched:', data);
         setQuotations(data);
@@ -112,7 +112,7 @@ const AddApprovePo = () => {
     };
   
     fetchQuotations();
-  }, [domain]);
+  }, []);
 
 
   const renderPurchaseOptions = () => {

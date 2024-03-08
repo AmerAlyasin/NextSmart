@@ -29,7 +29,7 @@ const SingleApprovePage = ({params}) => {
     const getQuotationById = async () => {
       try {
         const domain = process.env.DOMAIN || "http://localhost:3000/api";
-        const response = await fetch(`${domain}/quotation/${params.id}`,{
+        const response = await fetch(`${domain}/api/quotation/${params.id}`,{
           method: "GET",
         });
         if (!response.ok) {
@@ -45,7 +45,7 @@ const SingleApprovePage = ({params}) => {
     };
   
     getQuotationById();
-  }, [domain, params.id]); 
+  }, [params.id]); 
 
   
   
@@ -53,7 +53,7 @@ const SingleApprovePage = ({params}) => {
         const fetchUsers= async () => {
           try {
             const domain = process.env.DOMAIN || "http://localhost:3000/api";
-            const response = await fetch(`${domain}/allUsers`, { method: 'GET' });
+            const response = await fetch(`${domain}/api/allUsers`, { method: 'GET' });
             const data = await response.json();
             console.log('Users fetched:', data);
             setUsers(data);
@@ -65,7 +65,7 @@ const SingleApprovePage = ({params}) => {
         };
       
         fetchUsers();
-      }, [domain]);
+      }, []);
       
 
       const downloadQuotationPdfDocument = async () => {
@@ -113,7 +113,7 @@ const SingleApprovePage = ({params}) => {
     
           // Send data to the server to create the document
           const domain = process.env.DOMAIN || "http://localhost:3000/api";
-          const response = await fetch(`${domain}/loadQuoPdf`, {
+          const response = await fetch(`${domain}/api/loadQuoPdf`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -182,7 +182,7 @@ const SingleApprovePage = ({params}) => {
     
           // Send data to the server to create the document
           const domain = process.env.DOMAIN || "http://localhost:3000/api";
-          const response = await fetch(`${domain}/loadQuoWord`, {
+          const response = await fetch(`${domain}/api/loadQuoWord`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

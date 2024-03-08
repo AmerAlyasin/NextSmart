@@ -30,7 +30,7 @@ const SingleApprovePo = ({params}) => {
                 try {
                   const domain = process.env.DOMAIN || "http://localhost:3000/api";
 
-                    const response = await fetch(`${domain}/purchaseOrder/${params.id}`,{
+                    const response = await fetch(`${domain}/api/purchaseOrder/${params.id}`,{
                       method: "GET",
                     });
                     if (!response.ok) {
@@ -46,13 +46,13 @@ const SingleApprovePo = ({params}) => {
             };
   
           getApprovePoById();
-        }, [domain]);
+        }, []);
         
         useEffect(() => {
           const fetchUsers= async () => {
             try {
               const domain = process.env.DOMAIN || "http://localhost:3000/api";
-              const response = await fetch(`${domain}/allUsers`, { method: 'GET' });
+              const response = await fetch(`${domain}/api/allUsers`, { method: 'GET' });
               const data = await response.json();
               console.log('Users fetched:', data);
               setUsers(data);
@@ -64,7 +64,7 @@ const SingleApprovePo = ({params}) => {
           };
         
           fetchUsers();
-        }, [domain]);
+        }, []);
 
   
         const downloadPurchaseOrderWordDocument = async () => {
@@ -113,7 +113,7 @@ const SingleApprovePo = ({params}) => {
       
             // Send data to the server to create the document
             const domain = process.env.DOMAIN || "http://localhost:3000/api";
-            const response = await fetch(`${domain}/loadPoFile`, {
+            const response = await fetch(`${domain}/api/loadPoFile`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -184,7 +184,7 @@ const SingleApprovePo = ({params}) => {
       
             // Send data to the server to create the document
             const domain = process.env.DOMAIN || "http://localhost:3000/api";
-            const response = await fetch(`${domain}/loadPoPdf`, {
+            const response = await fetch(`${domain}/api/loadPoPdf`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',

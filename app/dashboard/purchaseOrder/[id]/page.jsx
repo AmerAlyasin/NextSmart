@@ -26,7 +26,7 @@ const SinglePurchasePage =({params}) => {
   useEffect(() => {
     const getPurchaseById = async () => {
       try {
-        const response = await fetch(`${domain}/purchaseOrder/${params.id}`,{
+        const response = await fetch(`${domain}/api/purchaseOrder/${params.id}`,{
           method: "GET",
         });
         if (!response.ok) {
@@ -42,7 +42,7 @@ const SinglePurchasePage =({params}) => {
     };
   
     getPurchaseById();
-  }, [domain ,params.id]); // Include params.id as a dependency
+  }, [params.id]); // Include params.id as a dependency
   
 
 
@@ -91,7 +91,7 @@ const SinglePurchasePage =({params}) => {
           };
     
           // Send data to the server to create the document
-          const response = await fetch(`${domain}/loadPoFile`, {
+          const response = await fetch(`${domain}/api/loadPoFile`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

@@ -24,9 +24,9 @@ const Dashboard = () => {
       try {
         // Simultaneously fetch all counts
         const [userRes, clientRes, supplierRes] = await Promise.all([
-          fetch(`${domain}/allUsersCount`),
-          fetch(`${domain}/allClientsCount`),
-          fetch(`${domain}/allSuppliersCount`)
+          fetch(`${domain}/api/allUsersCount`),
+          fetch(`${domain}/api/allClientsCount`),
+          fetch(`${domain}/api/allSuppliersCount`)
         ]);
 
         // Check if all responses are OK

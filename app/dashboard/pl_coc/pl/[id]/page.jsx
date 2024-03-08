@@ -22,7 +22,7 @@ const SinglePl = ({params}) => {
     const getPlById = async () => {
       try {
         const domain = process.env.DOMAIN || "http://localhost:3000/api";
-        const response = await fetch(`${domain}/pl/${params.id}`,{
+        const response = await fetch(`${domain}/api/pl/${params.id}`,{
           method: "GET",
         });
         if (!response.ok) {
@@ -38,7 +38,7 @@ const SinglePl = ({params}) => {
     };
   
     getPlById();
-  }, [domain,params.id]); // Include params.id as a dependency
+  }, [params.id]); // Include params.id as a dependency
   
       
 
@@ -125,7 +125,7 @@ const SinglePl = ({params}) => {
     
           // Send data to the server to create the document
           const domain = process.env.DOMAIN || "http://localhost:3000/api";
-          const response = await fetch(`${domain}/loadPlPdf`, {
+          const response = await fetch(`${domain}/api/loadPlPdf`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

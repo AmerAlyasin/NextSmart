@@ -22,7 +22,7 @@ const SingleCocApprove = ({params}) => {
       const getCocById = async () => {
         try {
           const domain = process.env.DOMAIN || "http://localhost:3000/api";
-          const url = `${domain}/coc/${params.id}`;
+          const url = `${domain}/api/coc/${params.id}`;
           const response = await fetch(url, {
             method: "GET",
           });
@@ -40,7 +40,7 @@ const SingleCocApprove = ({params}) => {
       };
     
       getCocById();
-    }, [domain]);
+    }, []);
     
 
 
@@ -48,7 +48,7 @@ const SingleCocApprove = ({params}) => {
             const fetchUsers= async () => {
               try {
                 const domain = process.env.DOMAIN || "http://localhost:3000/api";
-                const response = await fetch(`${domain}/allUsers`, { method: 'GET' });
+                const response = await fetch(`${domain}/api/allUsers`, { method: 'GET' });
                 const data = await response.json();
                 console.log('Users fetched:', data);
                 setUsers(data);
@@ -60,7 +60,7 @@ const SingleCocApprove = ({params}) => {
             };
           
             fetchUsers();
-          }, [domain]);
+          }, []);
         
   
         const downloadCocWordDocument = async () => {
@@ -95,7 +95,7 @@ const SingleCocApprove = ({params}) => {
       
             // Send data to the server to create the document
             const domain = process.env.DOMAIN || "http://localhost:3000/api";
-            const response = await fetch(`${domain}/loadCocFile`, {
+            const response = await fetch(`${domain}/api/loadCocFile`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -152,7 +152,7 @@ const SingleCocApprove = ({params}) => {
         
               // Send data to the server to create the document
               const domain = process.env.DOMAIN || "http://localhost:3000/api";
-              const response = await fetch(`${domain}/loadCocPdf`, {
+              const response = await fetch(`${domain}/api/loadCocPdf`, {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',

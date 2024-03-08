@@ -16,7 +16,7 @@ const AddJobOrderPage = () => {
   const fetchClientsWithQuotations = async () => {
     try {
       const domain = process.env.DOMAIN || "http://localhost:3000/api";
-      const response = await fetch(`${domain}/clientWithQuoAndPo`, {
+      const response = await fetch(`${domain}/api/clientWithQuoAndPo`, {
         method: "POST"
       });
       if (response.ok) {
@@ -42,7 +42,7 @@ const AddJobOrderPage = () => {
 
     // Fetch clients with quotations on component mount
     fetchClientsWithQuotations();
-  }, [domain]);
+  }, []);
 
   const renderClientOptions = () => (
     <>

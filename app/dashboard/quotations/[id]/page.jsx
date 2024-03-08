@@ -30,7 +30,7 @@ const SingleQuotation = ({params}) => {
   useEffect(() => {
     const getQuotationById = async () => {
       try {
-        const response = await fetch(`${domain}/quotation/${params.id}`,{
+        const response = await fetch(`${domain}/api/quotation/${params.id}`,{
           method: "GET",
         });
         if (!response.ok) {
@@ -46,7 +46,7 @@ const SingleQuotation = ({params}) => {
     };
   
     getQuotationById();
-  }, [domain ,params.id]); // Include getQuotationById as a dependency
+  }, [params.id]); // Include getQuotationById as a dependency
   
       
 
@@ -94,7 +94,7 @@ const SingleQuotation = ({params}) => {
           };
     
           // Send data to the server to create the document
-          const response = await fetch(`${domain}/loadQuoPdf`, {
+          const response = await fetch(`${domain}/api/loadQuoPdf`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
