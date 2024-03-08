@@ -21,7 +21,7 @@ const SingleCocApprove = ({params}) => {
     useEffect(() => {
       const getCocById = async () => {
         try {
-          const domain = process.env.DOMAIN || "http://localhost:3000/api";
+          const domain = process.env.DOMAIN || "http://localhost:3000";
           const url = `${domain}/api/coc/${params.id}`;
           const response = await fetch(url, {
             method: "GET",
@@ -47,7 +47,7 @@ const SingleCocApprove = ({params}) => {
         useEffect(() => {
             const fetchUsers= async () => {
               try {
-                const domain = process.env.DOMAIN || "http://localhost:3000/api";
+                const domain = process.env.DOMAIN || "http://localhost:3000";
                 const response = await fetch(`${domain}/api/allUsers`, { method: 'GET' });
                 const data = await response.json();
                 console.log('Users fetched:', data);
@@ -94,7 +94,7 @@ const SingleCocApprove = ({params}) => {
             };
       
             // Send data to the server to create the document
-            const domain = process.env.DOMAIN || "http://localhost:3000/api";
+            const domain = process.env.DOMAIN || "http://localhost:3000";
             const response = await fetch(`${domain}/api/loadCocFile`, {
               method: 'POST',
               headers: {
@@ -151,7 +151,7 @@ const SingleCocApprove = ({params}) => {
               };
         
               // Send data to the server to create the document
-              const domain = process.env.DOMAIN || "http://localhost:3000/api";
+              const domain = process.env.DOMAIN || "http://localhost:3000";
               const response = await fetch(`${domain}/api/loadCocPdf`, {
                 method: 'POST',
                 headers: {

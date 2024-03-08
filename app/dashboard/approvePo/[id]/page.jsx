@@ -28,7 +28,7 @@ const SingleApprovePo = ({params}) => {
         useEffect(() =>{
             const getApprovePoById = async () => {
                 try {
-                  const domain = process.env.DOMAIN || "http://localhost:3000/api";
+                  const domain = process.env.DOMAIN || "http://localhost:3000";
 
                     const response = await fetch(`${domain}/api/purchaseOrder/${params.id}`,{
                       method: "GET",
@@ -51,7 +51,7 @@ const SingleApprovePo = ({params}) => {
         useEffect(() => {
           const fetchUsers= async () => {
             try {
-              const domain = process.env.DOMAIN || "http://localhost:3000/api";
+              const domain = process.env.DOMAIN || "http://localhost:3000";
               const response = await fetch(`${domain}/api/allUsers`, { method: 'GET' });
               const data = await response.json();
               console.log('Users fetched:', data);
@@ -112,7 +112,7 @@ const SingleApprovePo = ({params}) => {
             };
       
             // Send data to the server to create the document
-            const domain = process.env.DOMAIN || "http://localhost:3000/api";
+            const domain = process.env.DOMAIN || "http://localhost:3000";
             const response = await fetch(`${domain}/api/loadPoFile`, {
               method: 'POST',
               headers: {
@@ -183,7 +183,7 @@ const SingleApprovePo = ({params}) => {
             };
       
             // Send data to the server to create the document
-            const domain = process.env.DOMAIN || "http://localhost:3000/api";
+            const domain = process.env.DOMAIN || "http://localhost:3000";
             const response = await fetch(`${domain}/api/loadPoPdf`, {
               method: 'POST',
               headers: {

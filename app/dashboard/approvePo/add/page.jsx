@@ -18,7 +18,7 @@ const AddApprovePo = () => {
   useEffect(()=>{
   const fetchSuppliersWithPurchaseOrders = async () => {
     try {
-      const domain = process.env.DOMAIN || "http://localhost:3000/api";
+      const domain = process.env.DOMAIN || "http://localhost:3000";
       const response = await fetch(`${domain}/api/supplierWithPo`, {
         method: "POST"
       });
@@ -63,7 +63,7 @@ const AddApprovePo = () => {
   useEffect(() => {
     const fetchSales= async () => {
       try {
-        const domain = process.env.DOMAIN || "http://localhost:3000/api";
+        const domain = process.env.DOMAIN || "http://localhost:3000";
         const response = await fetch(`${domain}/api/allSales`, { method: 'GET' });
         const data = await response.json();
         console.log('Sales fetched:', data);
@@ -81,7 +81,7 @@ const AddApprovePo = () => {
   useEffect(() => {
     const fetchUsers= async () => {
       try {
-        const domain = process.env.DOMAIN || "http://localhost:3000/api";
+        const domain = process.env.DOMAIN || "http://localhost:3000";
         const response = await fetch(`${domain}/api/allUsers`, { method: 'GET' });
         const data = await response.json();
         console.log('Users fetched:', data);
@@ -99,7 +99,7 @@ const AddApprovePo = () => {
   useEffect(() => {
     const fetchQuotations= async () => {
       try {
-        const domain = process.env.DOMAIN || "http://localhost:3000/api";
+        const domain = process.env.DOMAIN || "http://localhost:3000";
         const response = await fetch(`${domain}/api/allQuotations`, { method: 'GET' });
         const data = await response.json();
         console.log('Quotation fetched:', data);

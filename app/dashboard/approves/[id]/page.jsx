@@ -28,7 +28,7 @@ const SingleApprovePage = ({params}) => {
   useEffect(() => {
     const getQuotationById = async () => {
       try {
-        const domain = process.env.DOMAIN || "http://localhost:3000/api";
+        const domain = process.env.DOMAIN || "http://localhost:3000";
         const response = await fetch(`${domain}/api/quotation/${params.id}`,{
           method: "GET",
         });
@@ -52,7 +52,7 @@ const SingleApprovePage = ({params}) => {
       useEffect(() => {
         const fetchUsers= async () => {
           try {
-            const domain = process.env.DOMAIN || "http://localhost:3000/api";
+            const domain = process.env.DOMAIN || "http://localhost:3000";
             const response = await fetch(`${domain}/api/allUsers`, { method: 'GET' });
             const data = await response.json();
             console.log('Users fetched:', data);
@@ -112,7 +112,7 @@ const SingleApprovePage = ({params}) => {
           };
     
           // Send data to the server to create the document
-          const domain = process.env.DOMAIN || "http://localhost:3000/api";
+          const domain = process.env.DOMAIN || "http://localhost:3000";
           const response = await fetch(`${domain}/api/loadQuoPdf`, {
             method: 'POST',
             headers: {
@@ -181,7 +181,7 @@ const SingleApprovePage = ({params}) => {
           };
     
           // Send data to the server to create the document
-          const domain = process.env.DOMAIN || "http://localhost:3000/api";
+          const domain = process.env.DOMAIN || "http://localhost:3000";
           const response = await fetch(`${domain}/api/loadQuoWord`, {
             method: 'POST',
             headers: {

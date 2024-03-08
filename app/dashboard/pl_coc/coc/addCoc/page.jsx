@@ -18,7 +18,7 @@ const AddCocPage = () => {
   useEffect(() => {
   const fetchClientsWithQuotations = async () => {
     try {
-      const domain = process.env.DOMAIN || "http://localhost:3000/api";
+      const domain = process.env.DOMAIN || "http://localhost:3000";
       const response = await fetch(`${domain}/api/clientWithQuoAndPo`, {
         method: "POST"
       });
@@ -90,7 +90,7 @@ const AddCocPage = () => {
   useEffect(() => {
     const fetchSales = async () => {
       try {
-        const domain = process.env.DOMAIN || "http://localhost:3000/api";
+        const domain = process.env.DOMAIN || "http://localhost:3000";
         const response = await fetch(`${domain}/api/allSales`, { method: 'GET' });
         const data = await response.json();
         console.log('Sales fetched:', data);
@@ -109,7 +109,7 @@ const AddCocPage = () => {
   useEffect(() => {
     const fetchJobOrder = async () => {
       try {
-        const domain = process.env.DOMAIN || "http://localhost:3000/api";
+        const domain = process.env.DOMAIN || "http://localhost:3000";
         const response = await fetch(`${domain}/api/allJobs`, { method: 'GET' });
         const data = await response.json();
         console.log('Purchase fetched:', data);

@@ -14,7 +14,7 @@ const AddPlPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const domain = process.env.DOMAIN || "http://localhost:3000/api";
+  const domain = process.env.DOMAIN || "http://localhost:3000";
 
 
   useEffect(()=> {

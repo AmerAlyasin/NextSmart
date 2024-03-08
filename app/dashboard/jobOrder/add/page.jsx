@@ -15,7 +15,7 @@ const AddJobOrderPage = () => {
  useEffect(()=> {
   const fetchClientsWithQuotations = async () => {
     try {
-      const domain = process.env.DOMAIN || "http://localhost:3000/api";
+      const domain = process.env.DOMAIN || "http://localhost:3000";
       const response = await fetch(`${domain}/api/clientWithQuoAndPo`, {
         method: "POST"
       });
