@@ -46,7 +46,7 @@ const SingleApprovePo = ({params}) => {
             };
   
           getApprovePoById();
-        }, []);
+        }, [domain]);
         
         useEffect(() => {
           const fetchUsers= async () => {
@@ -64,7 +64,7 @@ const SingleApprovePo = ({params}) => {
           };
         
           fetchUsers();
-        }, []);
+        }, [domain]);
 
   
         const downloadPurchaseOrderWordDocument = async () => {

@@ -38,7 +38,7 @@ const SingleCoc = ({params}) => {
     };
   
     getCocById();
-  }, [params.id]); // <-- Add params.id as a dependency
+  }, [domain ,params.id]); // <-- Add params.id as a dependency
   
       
 

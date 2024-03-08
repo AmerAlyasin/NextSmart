@@ -45,7 +45,7 @@ const AddPlPage = () => {
   };
 
     fetchClientsWithQuotations();
-  }, []);
+  }, [domain]);
 
   const renderClientOptions = () => (
     <>
@@ -100,7 +100,7 @@ const AddPlPage = () => {
     };
   
     fetchSales();
-  }, []);
+  }, [domain]);
 
   useEffect(() => {
     const fetchJobOrder = async () => {
@@ -117,7 +117,7 @@ const AddPlPage = () => {
     };
   
     fetchJobOrder();
-  }, []);
+  }, [domain]);
 
  
   const addRow = () => {

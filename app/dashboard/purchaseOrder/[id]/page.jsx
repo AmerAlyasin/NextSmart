@@ -42,7 +42,7 @@ const SinglePurchasePage =({params}) => {
     };
   
     getPurchaseById();
-  }, [params.id]); // Include params.id as a dependency
+  }, [domain ,params.id]); // Include params.id as a dependency
   
 
 

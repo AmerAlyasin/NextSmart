@@ -45,7 +45,7 @@ const AddApprovePo = () => {
 
   
     fetchSuppliersWithPurchaseOrders();
-  }, []);
+  }, [domain]);
 
 
   const renderSupplierOptions = () => (
@@ -76,7 +76,7 @@ const AddApprovePo = () => {
     };
   
     fetchSales();
-  }, []);
+  }, [domain]);
  
   useEffect(() => {
     const fetchUsers= async () => {
@@ -94,7 +94,7 @@ const AddApprovePo = () => {
     };
   
     fetchUsers();
-  }, []);
+  }, [domain]);
 
   useEffect(() => {
     const fetchQuotations= async () => {
@@ -112,7 +112,7 @@ const AddApprovePo = () => {
     };
   
     fetchQuotations();
-  }, []);
+  }, [domain]);
 
 
   const renderPurchaseOptions = () => {

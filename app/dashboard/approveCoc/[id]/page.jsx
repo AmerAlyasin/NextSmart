@@ -40,7 +40,7 @@ const SingleCocApprove = ({params}) => {
       };
     
       getCocById();
-    }, []);
+    }, [domain]);
     
 
 
@@ -60,7 +60,7 @@ const SingleCocApprove = ({params}) => {
             };
           
             fetchUsers();
-          }, []);
+          }, [domain]);
         
   
         const downloadCocWordDocument = async () => {

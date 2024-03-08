@@ -45,7 +45,7 @@ const SingleApprovePage = ({params}) => {
     };
   
     getQuotationById();
-  }, [params.id]); 
+  }, [domain, params.id]); 
 
   
   
@@ -65,7 +65,7 @@ const SingleApprovePage = ({params}) => {
         };
       
         fetchUsers();
-      }, []);
+      }, [domain]);
       
 
       const downloadQuotationPdfDocument = async () => {

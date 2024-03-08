@@ -45,7 +45,7 @@ const AddCocPage = () => {
 
     // Fetch clients with quotations on component mount
     fetchClientsWithQuotations();
-  }, []);
+  }, [domain ]);
 
   const renderClientOptions = () => (
     <>
@@ -103,7 +103,7 @@ const AddCocPage = () => {
     };
   
     fetchSales();
-  }, []);
+  }, [domain ]);
 
 
   useEffect(() => {
@@ -122,7 +122,7 @@ const AddCocPage = () => {
     };
   
     fetchJobOrder();
-  }, []);
+  }, [domain ]);
 
 
  

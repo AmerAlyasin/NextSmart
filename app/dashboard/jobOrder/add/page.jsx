@@ -42,7 +42,7 @@ const AddJobOrderPage = () => {
 
     // Fetch clients with quotations on component mount
     fetchClientsWithQuotations();
-  }, []);
+  }, [domain]);
 
   const renderClientOptions = () => (
     <>

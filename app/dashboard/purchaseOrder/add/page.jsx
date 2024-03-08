@@ -30,7 +30,7 @@ const AddPurchasePage = () => {
     };
   
     fetchSuppliers();
-  }, []);
+  }, [domain ]);
 
 
 
@@ -49,7 +49,7 @@ const AddPurchasePage = () => {
     };
   
     fetchQuotations();
-  }, []);
+  }, [domain ]);
 
 
   useEffect(() => { 
@@ -67,7 +67,7 @@ const AddPurchasePage = () => {
     };
   
     fetchSales();
-  }, []);
+  }, [domain ]);
 
 
   const addRow = () => {

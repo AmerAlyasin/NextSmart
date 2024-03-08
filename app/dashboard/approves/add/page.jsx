@@ -46,7 +46,7 @@ const AddApproveQuo = () => {
   };
 
     fetchClientsWithQuotations();
-  }, []);
+  }, [domain]);
 
   const renderClientOptions = () => (
     <>
@@ -76,7 +76,7 @@ const AddApproveQuo = () => {
     };
   
     fetchSales();
-  }, []);
+  }, [domain]);
  
   useEffect(() => {
     const fetchUsers= async () => {
@@ -93,7 +93,7 @@ const AddApproveQuo = () => {
     };
   
     fetchUsers();
-  }, []);
+  }, [domain]);
 
 
   

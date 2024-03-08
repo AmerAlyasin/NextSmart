@@ -46,7 +46,7 @@ const SingleQuotation = ({params}) => {
     };
   
     getQuotationById();
-  }, [params.id]); // Include getQuotationById as a dependency
+  }, [domain ,params.id]); // Include getQuotationById as a dependency
   
       
 
