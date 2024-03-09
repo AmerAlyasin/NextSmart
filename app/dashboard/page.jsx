@@ -22,28 +22,26 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchCounts = async () => {
       try {
-
-        const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000"
-        console.log(process.env.NEXT_PUBLIC_API_URL)
+        const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+        console.log(process.env.NEXT_PUBLIC_API_URL);
         const [userRes, clientRes, supplierRes] = await Promise.all([
-          
           fetch(`${domain}/api/allUsersCount`),
           fetch(`${domain}/api/allClientsCount`),
           fetch(`${domain}/api/allSuppliersCount`)
         ]);
-
+  
         // Check if all responses are OK
         if (!userRes.ok || !clientRes.ok || !supplierRes.ok) {
           throw new Error('HTTP error when fetching counts');
         }
-
+  
         // Parse JSON for all responses
         const [userData, clientData, supplierData] = await Promise.all([
           userRes.json(),
           clientRes.json(),
           supplierRes.json()
         ]);
-
+  
         // Set all counts
         setCounts({
           userCount: userData.count,
@@ -57,9 +55,10 @@ const Dashboard = () => {
         setLoading(false);
       }
     };
-
+  
     fetchCounts();
-  }, [counts]);
+  }, []); // Remove 'counts' from the dependency array
+  
 
   if (loading) {
     return <p>Loading data...</p>;
