@@ -23,7 +23,8 @@ const Dashboard = () => {
     const fetchCounts = async () => {
       try {
 
-        const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+        const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000"
+        console.log(process.env.NEXT_PUBLIC_API_URL)
         const [userRes, clientRes, supplierRes] = await Promise.all([
           
           fetch(`${domain}/api/allUsersCount`),
