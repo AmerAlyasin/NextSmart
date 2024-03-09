@@ -6,12 +6,12 @@ import { NextResponse } from 'next/server';
 import fetch from 'node-fetch';
 
 // Initialize ConvertAPI
-const convertapi = require('convertapi')('GHEsBIA9TQLzG3EV');
+const convertapi = require('convertapi')('NoFD5inA5ziq9qs1');
 
 // Function to write buffer to a temporary file
 function writeBufferToTempFile(buffer, fileName) {
   return new Promise((resolve, reject) => {
-    const tempFilePath = path.join(__dirname, fileName); // Adjust filename as necessary
+    const tempFilePath = path.join(__dirname, fileName); 
     fs.writeFile(tempFilePath, buffer, (err) => {
       if (err) {
         reject(err);
