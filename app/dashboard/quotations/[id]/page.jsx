@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { FaPlus, FaTrash } from 'react-icons/fa';
 import styles from '@/app/ui/dashboard/approve/approve.module.css';
 import { updateQuotation } from '@/app/lib/actions';
+
  
 
 
@@ -23,13 +24,14 @@ const SingleQuotation = ({params}) => {
     excluding: '',
   });
   const [rows, setRows] = useState([]);
-  const domain = process.env.DOMAIN;
+  const domain = process.env.NEXT_PUBLIC_API_URL;
 
 
 
   useEffect(() => {
     const getQuotationById = async () => {
       try {
+        console.log("process.env.DOMAIN:", process.env.NEXT_PUBLIC_API_URL);
         const response = await fetch(`${domain}/api/quotation/${params.id}`, {
           method: "GET",
         });
