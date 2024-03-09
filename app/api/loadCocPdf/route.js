@@ -11,7 +11,7 @@ const convertapi = require('convertapi')(process.env.CONVERTAPI_SECRET2);
 // Function to write buffer to a temporary file
 function writeBufferToTempFile(buffer, fileName) {
   return new Promise((resolve, reject) => {
-    const tempFilePath = path.join(__dirname, fileName); // Adjust filename as necessary
+    const tempFilePath = path.join(__dirname, fileName); 
     fs.writeFile(tempFilePath, buffer, (err) => {
       if (err) {
         reject(err);
