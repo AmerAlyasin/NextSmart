@@ -14,7 +14,7 @@ const AddPlPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const domain = process.env.DOMAIN || "http://localhost:3000";
+  const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
 
   useEffect(()=> {

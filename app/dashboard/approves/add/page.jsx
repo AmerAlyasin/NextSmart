@@ -13,6 +13,8 @@ const AddApproveQuo = () => {
   const [users, setUsers] = useState([]); 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+
 
   
 
@@ -20,7 +22,6 @@ const AddApproveQuo = () => {
   useEffect(() => {
   const fetchClientsWithQuotations = async () => {
     try {
-      const domain = process.env.DOMAIN || "http://localhost:3000";
       const response = await fetch(`${domain}/api/clientWithQuoAndPo`, {
         method: "POST"
       });
@@ -63,7 +64,6 @@ const AddApproveQuo = () => {
   useEffect(() => {
     const fetchSales= async () => {
       try {
-        const domain = process.env.DOMAIN || "http://localhost:3000";
         const response = await fetch(`${domain}/api/allSales`, { method: 'GET' });
         const data = await response.json();
         console.log('Sales fetched:', data);
@@ -81,7 +81,6 @@ const AddApproveQuo = () => {
   useEffect(() => {
     const fetchUsers= async () => {
       try {
-        const domain = process.env.DOMAIN || "http://localhost:3000";
         const response = await fetch(`${domain}/api/allUsers`, { method: 'GET' });
         const data = await response.json();
         setUsers(data);

@@ -9,7 +9,7 @@ const SinglePurchasePage =({params}) => {
   const [purchaseOrder, setPurchaseOrder] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setLoading] = useState(true);
-  const domain = process.env.DOMAIN || "http://localhost:3000";
+  const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
   const [formData, setFormData] = useState({
     supplierName: '', 

@@ -24,7 +24,7 @@ const SingleQuotation = ({params}) => {
     excluding: '',
   });
   const [rows, setRows] = useState([]);
-  const domain = process.env.NEXT_PUBLIC_API_URL;
+  const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
 
 

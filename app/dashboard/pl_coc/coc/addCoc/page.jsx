@@ -13,12 +13,12 @@ const AddCocPage = () => {
   const [rows, setRows] = React.useState([{ number: 1 }]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
 
   useEffect(() => {
   const fetchClientsWithQuotations = async () => {
     try {
-      const domain = process.env.DOMAIN || "http://localhost:3000";
       const response = await fetch(`${domain}/api/clientWithQuoAndPo`, {
         method: "POST"
       });
@@ -90,7 +90,6 @@ const AddCocPage = () => {
   useEffect(() => {
     const fetchSales = async () => {
       try {
-        const domain = process.env.DOMAIN || "http://localhost:3000";
         const response = await fetch(`${domain}/api/allSales`, { method: 'GET' });
         const data = await response.json();
         console.log('Sales fetched:', data);
@@ -109,7 +108,6 @@ const AddCocPage = () => {
   useEffect(() => {
     const fetchJobOrder = async () => {
       try {
-        const domain = process.env.DOMAIN || "http://localhost:3000";
         const response = await fetch(`${domain}/api/allJobs`, { method: 'GET' });
         const data = await response.json();
         console.log('Purchase fetched:', data);

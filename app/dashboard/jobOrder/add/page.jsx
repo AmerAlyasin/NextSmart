@@ -9,13 +9,14 @@ const AddJobOrderPage = () => {
   const [selectedQuotation, setSelectedQuotation] = useState('');
   const [selectedPO, setSelectedPO] = useState('');
   const [selectedPODate, setSelectedPODate] = useState('');
+  const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+
 
 
 
  useEffect(()=> {
   const fetchClientsWithQuotations = async () => {
     try {
-      const domain = process.env.DOMAIN || "http://localhost:3000";
       const response = await fetch(`${domain}/api/clientWithQuoAndPo`, {
         method: "POST"
       });
