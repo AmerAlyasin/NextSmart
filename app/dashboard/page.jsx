@@ -26,9 +26,9 @@ const Dashboard = () => {
         const timestamp = new Date().getTime(); // Get the current timestamp
         console.log(process.env.NEXT_PUBLIC_API_URL);
         const [userRes, clientRes, supplierRes] = await Promise.all([
-          fetch(`${domain}/api/allUsersCount${timestamp}`),
-          fetch(`${domain}/api/allClientsCount${timestamp}`),
-          fetch(`${domain}/api/allSuppliersCount${timestamp}`)
+          fetch(`${domain}/api/allUsersCount`),
+          fetch(`${domain}/api/allClientsCount`),
+          fetch(`${domain}/api/allSuppliersCount`)
         ]);
   
         // Check if all responses are OK
