@@ -10,7 +10,6 @@ export async function GET() {
       status: 200,
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*', // Set to specific domain in production
 
       },
     });
@@ -21,7 +20,6 @@ export async function GET() {
       status: 500,
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*', // Set to specific domain in production
 
       },
     });

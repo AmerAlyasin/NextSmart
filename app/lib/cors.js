@@ -1,4 +1,4 @@
-// lib/cors.js
+/*// lib/cors.js
 
 import Cors from 'cors';
 
@@ -19,4 +19,4 @@ export default function initMiddleware(handler) {
       });
     });
   };
-}
+}*/
