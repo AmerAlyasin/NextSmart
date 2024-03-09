@@ -10,6 +10,8 @@ export async function GET() {
       status: 200,
       headers: {
         'Content-Type': 'application/json',
+        'Content-Type':'Control-Allow-Origin',
+
       },
     });
   } catch (error) {
@@ -19,6 +21,8 @@ export async function GET() {
       status: 500,
       headers: {
         'Content-Type': 'application/json',
+        'Content-Type':'Control-Allow-Origin',
+
       },
     });
   }
