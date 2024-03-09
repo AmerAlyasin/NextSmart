@@ -23,7 +23,7 @@ const SingleQuotation = ({params}) => {
     excluding: '',
   });
   const [rows, setRows] = useState([]);
-  const domain = process.env.DOMAIN || "http://localhost:3000";
+  const domain = process.env.DOMAIN;
 
 
 

@@ -13,7 +13,7 @@ const Dashboard = () => {
     userCount: null,
     clientCount: null,
     supplierCount: null
-  });
+  }); 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const domain = process.env.DOMAIN || "http://localhost:3000";
@@ -56,7 +56,7 @@ const Dashboard = () => {
     };
 
     fetchCounts();
-  }, [domain ]);
+  }, []);
 
   if (loading) {
     return <p>Loading data...</p>;

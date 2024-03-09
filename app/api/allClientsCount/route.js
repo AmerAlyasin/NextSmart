@@ -8,7 +8,7 @@ export async function GET() {
     // Return the count as a JSON object
     return new NextResponse(JSON.stringify({ count: clientCount }), {
       status: 200,
-      headers: {
+      headers: { 
         'Content-Type': 'application/json',
       },
     });
