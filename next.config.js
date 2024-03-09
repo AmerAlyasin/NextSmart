@@ -1,7 +1,8 @@
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack: (config, { isServer }) => {
     if (!isServer) {
-      config.node = {
+      node = {
         net: 'empty'
       };
       config.resolve.fallback.dns = false;
@@ -22,14 +23,14 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: '/api/:path*',
+        // matching all API routes
+        source: "/api/:path*",
         headers: [
-          { key: 'Access-Control-Allow-Credentials', value: 'true' },
-          { key: 'Access-Control-Allow-Origin', value: '*' }, // Allow requests from any origin during development
-          { key: 'Access-Control-Allow-Methods', value: 'GET,OPTIONS,PATCH,DELETE,POST,PUT' },
-          { key: 'Access-Control-Allow-Headers', value: 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version' },
-        ],
-      },
+          { key: "Access-Control-Allow-Origin", value: "*" },
+          { key: "Access-Control-Allow-Methods", value: "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
+          { key: "Access-Control-Allow-Headers", value: "X-Requested-With, Content-Type, Authorization" },
+        ]
+      }
     ];
   },
 };
