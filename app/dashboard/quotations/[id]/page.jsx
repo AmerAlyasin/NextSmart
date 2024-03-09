@@ -30,7 +30,7 @@ const SingleQuotation = ({params}) => {
   useEffect(() => {
     const getQuotationById = async () => {
       try {
-        const response = await fetch(`${domain}/api/quotation/${params.id}`,{
+        const response = await fetch(`${domain}/api/quotation/${params.id}`, {
           method: "GET",
         });
         if (!response.ok) {
@@ -46,7 +46,8 @@ const SingleQuotation = ({params}) => {
     };
   
     getQuotationById();
-  }, [params.id]); // Include getQuotationById as a dependency
+  }, [params.id, domain]);
+  
   
       
 
