@@ -58,7 +58,7 @@ const Dashboard = () => {
     };
 
     fetchCounts();
-  }, []);
+  }, [counts]);
 
   if (loading) {
     return <p>Loading data...</p>;
