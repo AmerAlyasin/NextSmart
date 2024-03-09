@@ -16,14 +16,16 @@ const Dashboard = () => {
   }); 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+  
 
 
   useEffect(() => {
     const fetchCounts = async () => {
       try {
-        // Simultaneously fetch all counts
+
+        const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
         const [userRes, clientRes, supplierRes] = await Promise.all([
+          
           fetch(`${domain}/api/allUsersCount`),
           fetch(`${domain}/api/allClientsCount`),
           fetch(`${domain}/api/allSuppliersCount`)
