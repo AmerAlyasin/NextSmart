@@ -23,11 +23,12 @@ const Dashboard = () => {
     const fetchCounts = async () => {
       try {
         const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+        const timestamp = new Date().getTime(); // Get the current timestamp
         console.log(process.env.NEXT_PUBLIC_API_URL);
         const [userRes, clientRes, supplierRes] = await Promise.all([
-          fetch(`${domain}/api/allUsersCount`),
-          fetch(`${domain}/api/allClientsCount`),
-          fetch(`${domain}/api/allSuppliersCount`)
+          fetch(`${domain}/api/allUsersCount${timestamp}`),
+          fetch(`${domain}/api/allClientsCount${timestamp}`),
+          fetch(`${domain}/api/allSuppliersCount${timestamp}`)
         ]);
   
         // Check if all responses are OK
