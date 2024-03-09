@@ -6,7 +6,7 @@ import { NextResponse } from 'next/server';
 import fetch from 'node-fetch';
 
 // Initialize ConvertAPI
-const convertapi = require('convertapi')('GHEsBIA9TQLzG3EV');
+const convertapi = require('convertapi')(process.env.CONVERTAPI_SECRET2);
 
 // Function to write buffer to a temporary file
 function writeBufferToTempFile(buffer, fileName) {
