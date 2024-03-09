@@ -10,10 +10,6 @@ export async function GET() {
       status: 200,
       headers: { 
         'Content-Type': 'application/json',
-        // Set to specific domain in production
-        'Access-Control-Allow-Origin': 'https://smart-vision-next-js-pied.vercel.app/', 
-        'Access-Control-Allow-Methods': 'GET, OPTIONS', // Specify allowed methods
-        'Access-Control-Allow-Headers': 'Content-Type', // Specify allowed headers
       },
     });
   } catch (error) {
@@ -23,8 +19,6 @@ export async function GET() {
       status: 500,
       headers: {
         'Content-Type': 'application/json',
-        // Set to specific domain in production
-        'Access-Control-Allow-Origin': 'https://smart-vision-next-js-pied.vercel.app/',
       },
     });
   }
