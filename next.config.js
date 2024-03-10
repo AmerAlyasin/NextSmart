@@ -1,4 +1,3 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack: (config, { isServer }) => {
     if (!isServer) {
@@ -23,11 +22,12 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: "/api/:path*",
+        source: "/api/:path*", // Adjust this path as needed
         headers: [
           { key: "Access-Control-Allow-Origin", value: "*" },
           { key: "Access-Control-Allow-Methods", value: "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
           { key: "Access-Control-Allow-Headers", value: "X-Requested-With, Content-Type, Authorization" },
+          { key: "Cache-Control", value: "no-cache, no-store, must-revalidate" }, // Add this line for cache control
         ]
       }
     ];
