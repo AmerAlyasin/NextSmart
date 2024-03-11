@@ -3,11 +3,12 @@ import { NextResponse } from 'next/server';
 
 export async function GET(req, res) {
     try {
+        console.log('API: GET /api/allClients called');
         const clients = await fetchAllClients();
+        console.log('API: Clients fetched:', clients);
         return NextResponse.json(clients);
     } catch (error) {
-        console.error('Error fetching clients:', error);
-
+        console.error('API: Error fetching clients:', error);
         return res.status(500).json({ message: 'Failed to fetch clients' });
     }
 }

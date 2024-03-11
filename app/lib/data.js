@@ -47,7 +47,6 @@ export const fetchUsers = async (q, page) => {
   };
 
   export const fetchAllUsers = async () => {
-    console.log("fetchAllUsers function called");
     try {
       await connectToDB();
       const users = await User.find({});
@@ -93,7 +92,6 @@ export const fetchUsers = async (q, page) => {
 
 
   export const fetchAllClients = async () => {
-    console.log("fetchAllClients function called");
     try {
       await connectToDB();
       const clients = await Client.find({});
@@ -106,7 +104,6 @@ export const fetchUsers = async (q, page) => {
 
 
 export const fetchAllSales = async () => {
-  console.log("fetchAllSales function called");
   try {
     await connectToDB();
     const sales = await Sale.find({});
@@ -119,7 +116,6 @@ export const fetchAllSales = async () => {
 
 
 export const fetchAllSupliers = async () => {
-  console.log("fetchAllSuppliers function called");
   try {
     await connectToDB();
     const suppliers = await Supplier.find({});
@@ -158,7 +154,6 @@ export const fetchAllSupliers = async () => {
   };
 
   export const fetchAllQuotations = async () => {
-    console.log("fetchAllQuotations function called");
     try {
       await connectToDB();
       const quotations = await Quotation.find({});
@@ -170,7 +165,6 @@ export const fetchAllSupliers = async () => {
   };
 
   export const fetchAllPurchase = async () => {
-    console.log("fetchAllPurchase function called");
     try {
       await connectToDB();
       const purchaseOrders = await PurchaseOrder.find({});
@@ -182,7 +176,6 @@ export const fetchAllSupliers = async () => {
   };
 
   export const fetchAllJobs = async () => {
-    console.log("fetchAllJobs function called");
     try {
       await connectToDB();
       const jobOrders = await JobOrder.find({});
@@ -215,7 +208,6 @@ export const fetchAllSupliers = async () => {
             .limit(ITEM_PER_PAGE)
             .skip((page - 1) * ITEM_PER_PAGE);
 
-        console.log('Quotations after population:', quotations);
 
         return { count, quotations };
     } catch (err) {
@@ -231,7 +223,6 @@ export const fetchQuotation = async (id) => {
       path: 'user',
       select: 'username'
     })
-    console.log('Quotation data:', quotation); 
     return quotation;
   } catch (err) {
     console.error(err);
@@ -284,7 +275,6 @@ export const fetchCocs = async (projectName, page = 1) => {
           .limit(ITEM_PER_PAGE)
           .skip((page - 1) * ITEM_PER_PAGE);
 
-      console.log('Cocs after population:', cocs);
 
       return { count, cocs }; // Return 'cocs' instead of 'Cocs'
   } catch (err) {
@@ -305,7 +295,6 @@ export const fetchCoc = async (id) => {
       path: 'user',
       select: 'username'
     })    
-    console.log('coc data:', coc);
     return coc;
   } catch (err) {
     console.error('Error fetching coc:', err);
@@ -333,7 +322,6 @@ export const fetchPls = async (projectName, page = 1) => {
           .limit(ITEM_PER_PAGE)
           .skip((page - 1) * ITEM_PER_PAGE);
 
-      console.log('pls after population:', pls);
 
       return { count, pls }; 
   } catch (err) {
@@ -347,7 +335,6 @@ export const fetchPl = async (id) => {
   try {
     await connectToDB();
     const pl = await Pl.findById(id).populate('sale').populate('client').populate('jobOrder').populate('quotation')  
-    console.log('pl data:', pl);
     return pl;
   } catch (err) {
     console.error('Error fetching pl:', err);
@@ -365,7 +352,6 @@ export const fetchSuppliersWithPurchaseOrders = async () => {
 
     const suppliersWithInfo = await Promise.all(suppliers.map(async (supplier) => {
       const purchaseOrders = await fetchPurchaseOrdersForSupplier(supplier._id);
-      console.log('PurchaseOrders for suppliers', supplier.name, purchaseOrders);
 
     
       return {
@@ -396,7 +382,6 @@ export const fetchClientsWithQuotationsAndPO = async () => {
 
     const clientsWithInfo = await Promise.all(clients.map(async (client) => {
       const quotations = await fetchQuotationsForClient(client._id);
-      console.log('Quotations for client', client.name, quotations);
 
       const jobOrders = await fetchJobOrdersForClient(client._id);
     
@@ -466,7 +451,6 @@ const fetchJobOrdersForClient = async (clientId) => {
       query['supplier.name'] = { $regex: new RegExp(supplierName, "i") };
 
     }
-    console.log('Query:', query);
     try {
       await connectToDB();
       const count = await PurchaseOrder.countDocuments(query);
@@ -499,7 +483,6 @@ const fetchJobOrdersForClient = async (clientId) => {
         path: 'user',
         select: 'username'
       })
-      console.log('PurchaseOrder data', purchaseOrder)
       return purchaseOrder;
     } catch (err) {
       console.error(err);
@@ -508,19 +491,16 @@ const fetchJobOrdersForClient = async (clientId) => {
   };
 
   export const fetchUserCount = async () => {
-    console.log("fetchUserCount function called");
     try {
       await connectToDB();
       const count = await User.countDocuments(); 
       return count;
     } catch (err) {
-      console.log("Error in fetchUserCount:", err);
       throw new Error('Failed to fetch user count!');
     }
   };
   
   export const fetchClientCount = async () => {
-    console.log("fetchClientCount function called");
     try {
       await connectToDB();
       const count = await Client.countDocuments(); 
@@ -531,7 +511,6 @@ const fetchJobOrdersForClient = async (clientId) => {
     }
   };
   export const fetchSupplierCount = async () => {
-    console.log("fetchSupplierCount function called");
     try {
       await connectToDB();
       const count = await Supplier.countDocuments(); 

@@ -17,33 +17,37 @@ const AddQuotationPage = () => {
 
   const fetchClients = async () => {
     try {
-      const response = await fetch(`${domain}/api/allClients`, {
-        cache: 'no-store', // Correct placement of cache option
-        method: 'GET'
-      });
-      const data = await response.json();
-      console.log('Clients fetched:', data);
-      setClients(data);
-      setLoading(false);
+        console.log('fetchClients: Fetching clients...');
+        const response = await fetch(`${domain}/api/allClients`, {
+            cache: 'no-store', 
+            method: 'GET'
+        });
+        const data = await response.json();
+        console.log('fetchClients: Clients fetched:', data);
+        setClients(data);
+        setLoading(false);
     } catch (error) {
-      console.error('Error fetching clients:', error);
-      setLoading(false);
+        console.error('fetchClients: Error fetching clients:', error);
+        setLoading(false);
     }
-  };
-  
-  useEffect(() => {
+};
+
+useEffect(() => {
+    console.log('useEffect: Fetching clients...');
     fetchClients();
-  }, []);
+}, []);
+
   
   
   
 
     const fetchSales= async () => {
       try {
+        console.log('fetchSales: Fetching sales...');
         const response = await fetch(`${domain}/api/allSales`, { method: 'GET' });
         const data = await response.json();
-        console.log('Sales fetched:', data);
         setSales(data);
+        console.log('fetchSales: sales fetched:', data);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching users:', error);
@@ -51,6 +55,7 @@ const AddQuotationPage = () => {
       }
     };
     useEffect(() => {
+      console.log('useEffect: Fetching sales...');
     fetchSales();
   }, []);
  
@@ -71,7 +76,6 @@ const AddQuotationPage = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log('Form submitted. FormData:', event.target);
 
     const formData = {
       saleId: event.target.saleId.value, 
