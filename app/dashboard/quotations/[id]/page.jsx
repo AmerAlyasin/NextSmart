@@ -51,7 +51,8 @@ const SingleQuotation = ({params}) => {
   }, [params.id]);
   
   
-      
+  const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+
 
       const downloadQuotationDocument = async () => {
         try {
@@ -96,7 +97,6 @@ const SingleQuotation = ({params}) => {
             CreatedAt: quotation.createdAt ? new Date(quotation.createdAt).toDateString().slice(4, 16) : '',
           };
     
-          const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
           const response = await fetch(`${domain}/api/loadQuoPdf`, {
             method: 'POST',
             headers: {
