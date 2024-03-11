@@ -11,7 +11,7 @@ const convertapi = require('convertapi')(process.env.CONVERTAPI_SECRET2);
 // Function to write buffer to a temporary file
 function writeBufferToTempFile(buffer, fileName) {
   return new Promise((resolve, reject) => {
-    const tempFilePath = path.join(__dirname, fileName); // Adjust filename as necessary
+    const tempFilePath = path.join(__dirname, fileName); 
     fs.writeFile(tempFilePath, buffer, (err) => {
       if (err) {
         reject(err);
@@ -81,7 +81,6 @@ export async function POST(req) {
 
   } catch (error) {
     console.error('Error in document generation:', error);
-    // It's better to not expose error details in production environments
     return new NextResponse('Internal Server Error', { status: 500 });
   }
 }

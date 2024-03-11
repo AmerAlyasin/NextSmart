@@ -4,7 +4,6 @@ import { NextResponse } from 'next/server';
 
 export async function GET(req, res) {
     try {
-        // ... your logic to handle the GET request ...
         const clients = await fetchAllClients(); // Example function call
         console.log(clients)
        return NextResponse.json(clients);

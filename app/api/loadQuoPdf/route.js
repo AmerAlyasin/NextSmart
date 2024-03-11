@@ -97,6 +97,7 @@ export async function POST(req) {
     const responseHeaders = {
       'Content-Disposition': 'attachment; filename="output.pdf"',
       'Content-Type': 'application/pdf',
+      'Access-Control-Allow-Origin': '*',
     };
 
     console.log("Sending PDF back to the client");
