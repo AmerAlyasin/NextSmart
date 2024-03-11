@@ -68,7 +68,7 @@ const SingleApprovePage = ({params}) => {
       }, [doamin, users]);
       
 
-      /*const downloadQuotationPdfDocument = async () => {
+      const downloadQuotationPdfDocument = async () => {
         try {
           const totalUnitPrice = rows.reduce((total, row) => total + Number(row.unitPrice || 0), 0);
           const vatRate = selectedCurrency === 'USD' ? 0 : 0.15; // 0% VAT for USD, 15% for SAR
@@ -134,7 +134,7 @@ const SingleApprovePage = ({params}) => {
              } catch (error) {
               console.error('Error downloading the document:', error);
           }
-      };*/
+      };
 
       const downloadQuotationWordDocument = async () => {
         try {

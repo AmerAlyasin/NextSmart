@@ -1,4 +1,4 @@
-/*import PizZip from 'pizzip';
+import PizZip from 'pizzip';
 import fs from 'fs';
 import path from 'path';
 import Docxtemplater from 'docxtemplater';
@@ -110,4 +110,3 @@ export async function POST(req) {
     return new NextResponse('Internal Server Error', { status: 500 });
   }
 }
-*/
