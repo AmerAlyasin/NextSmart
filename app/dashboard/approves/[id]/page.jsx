@@ -50,10 +50,9 @@ const SingleApprovePage = ({params}) => {
 
   
   
-      useEffect(() => {
         const fetchUsers= async () => {
+          const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
           try {
-            const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
             const response = await fetch(`${domain}/api/allUsers`, { method: 'GET' });
             const data = await response.json();
             console.log('Users fetched:', data);
@@ -64,12 +63,12 @@ const SingleApprovePage = ({params}) => {
             setLoading(false);
           }
         };
-      
+        useEffect(() => {
         fetchUsers();
-      }, []);
+      }, [doamin, users]);
       
 
-      const downloadQuotationPdfDocument = async () => {
+      /*const downloadQuotationPdfDocument = async () => {
         try {
           const totalUnitPrice = rows.reduce((total, row) => total + Number(row.unitPrice || 0), 0);
           const vatRate = selectedCurrency === 'USD' ? 0 : 0.15; // 0% VAT for USD, 15% for SAR
@@ -135,7 +134,7 @@ const SingleApprovePage = ({params}) => {
              } catch (error) {
               console.error('Error downloading the document:', error);
           }
-      };
+      };*/
 
       const downloadQuotationWordDocument = async () => {
         try {
