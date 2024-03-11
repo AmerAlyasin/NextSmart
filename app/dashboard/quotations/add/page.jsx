@@ -14,27 +14,26 @@ const AddQuotationPage = () => {
 
   
 
+  const fetchClients = async () => {
+    try {
+      const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+      const response = await fetch(`${domain}/api/allClients`, { method: 'GET' });
+      const data = await response.json();
+      console.log('Clients fetched:', data);
+      setClients(data);
+      setLoading(false);
+    } catch (error) {
+      console.error('Error fetching clients:', error);
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const fetchClients = async () => {
-      try {
-        const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
-        const response = await fetch(`${domain}/api/allClients`, { method: 'GET' });
-        const data = await response.json();
-        console.log('Clients fetched:', data);
-        setClients(data);
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching clients:', error);
-        setLoading(false);
-      }
-    };
-  
     fetchClients();
-  }, [clients]); 
+  }, []);
   
   
 
-  useEffect(() => {
     const fetchSales= async () => {
       try {
         const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
@@ -48,7 +47,7 @@ const AddQuotationPage = () => {
         setLoading(false);
       }
     };
-  
+    useEffect(() => {
     fetchSales();
   }, []);
  

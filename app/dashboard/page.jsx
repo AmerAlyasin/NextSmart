@@ -19,7 +19,6 @@ const Dashboard = () => {
   
 
 
-  useEffect(() => {
     const fetchCounts = async () => {
       try {
         const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
@@ -56,9 +55,9 @@ const Dashboard = () => {
         setLoading(false);
       }
     };
-  
+    useEffect(() => {
     fetchCounts();
-  }, []); // Remove 'counts' from the dependency array
+  }, []); 
   
 
   if (loading) {
