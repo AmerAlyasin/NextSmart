@@ -51,7 +51,7 @@ const SingleQuotation = ({params}) => {
   }, [params.id]);
   
   
-  //const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+  /*const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
 
       const downloadQuotationDocument = async () => {
@@ -120,7 +120,7 @@ const SingleQuotation = ({params}) => {
              } catch (error) {
               console.error('Error downloading the document:', error);
           }
-      };
+      };*/
               
     
 
