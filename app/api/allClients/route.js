@@ -1,6 +1,7 @@
 import { fetchAllClients } from '@/app/lib/data'; // Adjust the import path as needed
 import { NextResponse } from 'next/server';
 
+export const revalidate = 1; 
 export async function GET(req, res) {
     try {
         console.log('API: GET /api/allClients called');
