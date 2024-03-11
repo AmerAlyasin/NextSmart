@@ -30,7 +30,7 @@ const AddQuotationPage = () => {
 
   useEffect(() => {
     fetchClients();
-  }, [domain]);
+  }, [clients]);
   
   
 
@@ -48,7 +48,7 @@ const AddQuotationPage = () => {
     };
     useEffect(() => {
     fetchSales();
-  }, [domain]);
+  }, [sales]);
  
 
   const addRow = () => {
