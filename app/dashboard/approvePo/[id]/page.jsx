@@ -24,13 +24,13 @@ const SingleApprovePo = ({params}) => {
       deliveryLocation: '',
     });
     const [rows, setRows] = useState([]);
-    const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
   
         useEffect(() =>{
             const getApprovePoById = async () => {
                 try {
 
+                  const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
                     const response = await fetch(`${domain}/api/purchaseOrder/${params.id}`,{
                       method: "GET",
                     });
@@ -52,6 +52,7 @@ const SingleApprovePo = ({params}) => {
         useEffect(() => {
           const fetchUsers= async () => {
             try {
+              const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
               const response = await fetch(`${domain}/api/allUsers`, { method: 'GET' });
               const data = await response.json();
               console.log('Users fetched:', data);

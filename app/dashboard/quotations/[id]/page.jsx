@@ -24,13 +24,13 @@ const SingleQuotation = ({params}) => {
     excluding: '',
   });
   const [rows, setRows] = useState([]);
-  const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
 
 
   useEffect(() => {
     const getQuotationById = async () => {
       try {
+        const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
         console.log("process.env.DOMAIN:", process.env.NEXT_PUBLIC_API_URL);
         const response = await fetch(`${domain}/api/quotation/${params.id}`, {
           method: "GET",
@@ -48,7 +48,7 @@ const SingleQuotation = ({params}) => {
     };
   
     getQuotationById();
-  }, [params.id, domain]);
+  }, [params.id]);
   
   
       
