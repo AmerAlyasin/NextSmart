@@ -17,12 +17,12 @@ const SingleCocApprove = ({params}) => {
       products: [],
     });
     const [rows, setRows] = useState([]);
-    const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
   
     useEffect(() => {
       const getCocById = async () => {
         try {
+          const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
           const url = `${domain}/api/coc/${params.id}`;
           const response = await fetch(url, {
             method: "GET",
@@ -48,6 +48,7 @@ const SingleCocApprove = ({params}) => {
         useEffect(() => {
             const fetchUsers= async () => {
               try {
+                const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
                 const response = await fetch(`${domain}/api/allUsers`, { method: 'GET' });
                 const data = await response.json();
                 console.log('Users fetched:', data);
@@ -93,7 +94,7 @@ const SingleCocApprove = ({params}) => {
               JobOrderNumber: coc.jobOrder?.jobOrderId,
             };
       
-            // Send data to the server to create the document
+            const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
             const response = await fetch(`${domain}/api/loadCocFile`, {
               method: 'POST',
               headers: {
@@ -149,7 +150,7 @@ const SingleCocApprove = ({params}) => {
                 JobOrderNumber: coc.jobOrder?.jobOrderId,
               };
         
-              // Send data to the server to create the document
+              const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
               const response = await fetch(`${domain}/api/loadCocPdf`, {
                 method: 'POST',
                 headers: {

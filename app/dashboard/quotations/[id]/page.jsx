@@ -96,7 +96,7 @@ const SingleQuotation = ({params}) => {
             CreatedAt: quotation.createdAt ? new Date(quotation.createdAt).toDateString().slice(4, 16) : '',
           };
     
-          // Send data to the server to create the document
+          const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
           const response = await fetch(`${domain}/api/loadQuoPdf`, {
             method: 'POST',
             headers: {

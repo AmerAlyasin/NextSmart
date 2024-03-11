@@ -112,7 +112,7 @@ const SingleApprovePo = ({params}) => {
               CreatedAt: purchaseOrder.createdAt ? new Date(purchaseOrder.createdAt).toDateString().slice(4, 16) : '',
             };
       
-            // Send data to the server to create the document
+            const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
             const response = await fetch(`${domain}/api/loadPoFile`, {
               method: 'POST',
               headers: {
@@ -182,7 +182,7 @@ const SingleApprovePo = ({params}) => {
               CreatedAt: purchaseOrder.createdAt ? new Date(purchaseOrder.createdAt).toDateString().slice(4, 16) : '',
             };
       
-            // Send data to the server to create the document
+            const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
             const response = await fetch(`${domain}/api/loadPoPdf`, {
               method: 'POST',
               headers: {
