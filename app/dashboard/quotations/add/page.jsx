@@ -30,7 +30,8 @@ const AddQuotationPage = () => {
     };
   
     fetchClients();
-  }, []);
+  }, [clients]); 
+  
   
 
   useEffect(() => {
