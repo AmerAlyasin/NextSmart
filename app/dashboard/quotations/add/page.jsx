@@ -17,21 +17,24 @@ const AddQuotationPage = () => {
 
   const fetchClients = async () => {
     try {
-      const response = await fetch(`${domain}/api/allClients`, { method: 'GET' });
+      const response = await fetch(`${domain}/api/allClients`, {
+        cache: 'no-store', // Correct placement of cache option
+        method: 'GET'
+      });
       const data = await response.json();
       console.log('Clients fetched:', data);
       setClients(data);
-      console.log(data)
       setLoading(false);
     } catch (error) {
       console.error('Error fetching clients:', error);
       setLoading(false);
     }
   };
-
+  
   useEffect(() => {
     fetchClients();
   }, []);
+  
   
   
 

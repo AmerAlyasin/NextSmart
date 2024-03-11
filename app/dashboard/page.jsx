@@ -25,9 +25,9 @@ const Dashboard = () => {
         const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
         console.log(process.env.NEXT_PUBLIC_API_URL);
         const [userRes, clientRes, supplierRes] = await Promise.all([
-          fetch(`${domain}/api/allUsersCount`),
-          fetch(`${domain}/api/allClientsCount`),
-          fetch(`${domain}/api/allSuppliersCount`)
+          fetch(`${domain}/api/allUsersCount`, { cache: 'no-store' }),
+          fetch(`${domain}/api/allClientsCount`, { cache: 'no-store' }),
+          fetch(`${domain}/api/allSuppliersCount`, { cache: 'no-store' })
         ]);
   
         // Check if all responses are OK
@@ -57,7 +57,8 @@ const Dashboard = () => {
     };
   
     fetchCounts();
-  }, []); // Remove 'counts' from the dependency array
+  }, []);
+  
   
 
   if (loading) {
