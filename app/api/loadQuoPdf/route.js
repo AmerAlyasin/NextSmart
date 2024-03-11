@@ -1,11 +1,10 @@
-import PizZip from 'pizzip';
+/*import PizZip from 'pizzip';
 import fs from 'fs';
 import path from 'path';
 import Docxtemplater from 'docxtemplater';
 import { NextResponse } from 'next/server';
 import fetch from 'node-fetch';
 
-// Initialize ConvertAPI
 const convertapi = require('convertapi')(process.env.CONVERTAPI_SECRET2);
 
 // Function to write buffer to a temporary file
@@ -111,3 +110,4 @@ export async function POST(req) {
     return new NextResponse('Internal Server Error', { status: 500 });
   }
 }
+*/
