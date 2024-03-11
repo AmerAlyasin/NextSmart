@@ -21,6 +21,7 @@ const AddQuotationPage = () => {
       const data = await response.json();
       console.log('Clients fetched:', data);
       setClients(data);
+      console.log(data)
       setLoading(false);
     } catch (error) {
       console.error('Error fetching clients:', error);

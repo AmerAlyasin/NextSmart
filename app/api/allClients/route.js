@@ -1,4 +1,3 @@
-// pages/api/clients.js
 import { fetchAllClients } from '@/app/lib/data'; // Adjust the import path as needed
 import { NextResponse } from 'next/server';
 

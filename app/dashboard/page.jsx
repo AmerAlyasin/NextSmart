@@ -18,10 +18,11 @@ const Dashboard = () => {
   const [error, setError] = useState(null);
   
 
-  const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
+  useEffect(() => {
     const fetchCounts = async () => {
       try {
+        const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
         console.log(process.env.NEXT_PUBLIC_API_URL);
         const [userRes, clientRes, supplierRes] = await Promise.all([
           fetch(`${domain}/api/allUsersCount`),
@@ -54,9 +55,9 @@ const Dashboard = () => {
         setLoading(false);
       }
     };
-    useEffect(() => {
+  
     fetchCounts();
-  }, [domain]); 
+  }, []); // Remove 'counts' from the dependency array
   
 
   if (loading) {

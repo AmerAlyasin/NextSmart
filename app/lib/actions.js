@@ -239,7 +239,7 @@ export const deleteSale = async (formData) => {
 
   try {
      connectToDB();        
-    await Client.findByIdAndDelete(id)
+    await Sale.findByIdAndDelete(id)
 
   } catch (err) {
     console.log(err)

@@ -48,7 +48,7 @@ const SingleQuotation = ({params}) => {
     };
   
     getQuotationById();
-  }, [params.id, domain]);
+  }, [params.id]);
   
   
       
