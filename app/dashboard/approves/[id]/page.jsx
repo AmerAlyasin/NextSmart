@@ -23,13 +23,13 @@ const SingleApprovePage = ({params}) => {
     excluding: '',
   });
   const [rows, setRows] = useState([]);
+  const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
 
 
   useEffect(() => {
     const getQuotationById = async () => {
       try {
-        const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
         const response = await fetch(`${domain}/api/quotation/${params.id}`,{
           method: "GET",
         });
@@ -50,8 +50,8 @@ const SingleApprovePage = ({params}) => {
 
   
   
+      useEffect(() => {
         const fetchUsers= async () => {
-          const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
           try {
             const response = await fetch(`${domain}/api/allUsers`, { method: 'GET' });
             const data = await response.json();
@@ -63,9 +63,9 @@ const SingleApprovePage = ({params}) => {
             setLoading(false);
           }
         };
-        useEffect(() => {
+      
         fetchUsers();
-      }, [doamin, users]);
+      }, []);
       
 
       const downloadQuotationPdfDocument = async () => {
@@ -111,6 +111,7 @@ const SingleApprovePage = ({params}) => {
             CreatedAt:quotation.createdAt ? new Date(quotation.createdAt).toDateString().slice(4, 16) : '',
           };
     
+          // Send data to the server to create the document
           const response = await fetch(`${domain}/api/loadQuoPdf`, {
             method: 'POST',
             headers: {
@@ -178,7 +179,7 @@ const SingleApprovePage = ({params}) => {
             CreatedAt: quotation.createdAt ? new Date(quotation.createdAt).toDateString().slice(4, 16) : '',
           };
     
-          const domain = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+          // Send data to the server to create the document
           const response = await fetch(`${domain}/api/loadQuoWord`, {
             method: 'POST',
             headers: {
